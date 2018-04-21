@@ -7,8 +7,7 @@
 using namespace std;
 
 void drawLine(int x1,int y1,int x2,int y2) {
-    cout<<x1<<", "<<y1<<", "<<x2<<", "<<y2<<endl;
-    drawBresenhamLine(320+x1,200+y1,320+x2,200+y2);
+    line(320+x1,200+y1,320+x2,200+y2);
 }
 
 void drawCube(int points[][3]) {
