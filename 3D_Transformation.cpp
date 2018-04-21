@@ -30,32 +30,80 @@ int main() {
     int points[8][3]={
         {0,0,0},{0,50,0},{50,50,0},{50,0,0},
         {0,0,50},{0,50,50},{50,50,50},{50,0,50}
-    };
+    },temp[8][3];
     setcolor(RED);
     drawCube(points);
     getch();
     cout<<"Enter rotation angles: ";
     float alpha,beta,gamma;
     cin>>alpha>>beta>>gamma;
+    for(int i=0;i<8;i++) {
+        for(int j=0;j<3;j++) {
+            temp[i][j]=points[i][j];
+        }
+    }
+    cout<<"Coords"<<endl;
+    for(int i=0;i<8;i++) {
+        for(int j=0;j<3;j++) {
+            cout<<points[i][j]<<" ";
+        }
+        cout<<endl;
+    }
     if(alpha) {
         alpha=((float)(22*alpha)/(7*180));
         for(int i=0;i<8;i++) {
-            points[i][1]=points[i][1]*cos(alpha)+points[i][2]*sin(alpha);
-            points[i][2]=-points[i][1]*sin(alpha)+points[i][2]*cos(alpha);
+            temp[i][1]=points[i][1]*cos(alpha)+points[i][2]*sin(alpha);
+            temp[i][2]=-points[i][1]*sin(alpha)+points[i][2]*cos(alpha);
+        }
+        for(int i=0;i<8;i++) {
+            for(int j=0;j<3;j++) {
+                points[i][j]=temp[i][j];
+            }
+        }
+        cout<<"Coords"<<endl;
+        for(int i=0;i<8;i++) {
+            for(int j=0;j<3;j++) {
+                cout<<points[i][j]<<" ";
+            }
+            cout<<endl;
         }
     }
     if(beta) {
         beta=((float)(22*beta)/(7*180));
         for(int i=0;i<8;i++) {
-            points[i][0]=-points[i][2]*sin(beta)+points[i][0]*cos(beta);
-            points[i][2]=points[i][2]*cos(beta)+points[i][0]*sin(beta);
+            temp[i][0]=-points[i][2]*sin(beta)+points[i][0]*cos(beta);
+            temp[i][2]=points[i][2]*cos(beta)+points[i][0]*sin(beta);
+        }
+        for(int i=0;i<8;i++) {
+            for(int j=0;j<3;j++) {
+                points[i][j]=temp[i][j];
+            }
+        }
+        cout<<"Coords"<<endl;
+        for(int i=0;i<8;i++) {
+            for(int j=0;j<3;j++) {
+                cout<<points[i][j]<<" ";
+            }
+            cout<<endl;
         }
     }
     if(gamma) {
         gamma=((float)(22*gamma)/(180*7));
         for(int i=0;i<8;i++) {
-            points[i][0]=points[i][0]*cos(gamma)+points[i][1]*sin(gamma);
-            points[i][1]=-points[i][0]*sin(gamma)+points[i][1]*cos(gamma);
+            temp[i][0]=points[i][0]*cos(gamma)+points[i][1]*sin(gamma);
+            temp[i][1]=-points[i][0]*sin(gamma)+points[i][1]*cos(gamma);
+        }
+        for(int i=0;i<8;i++) {
+            for(int j=0;j<3;j++) {
+                points[i][j]=temp[i][j];
+            }
+        }
+        cout<<"Coords"<<endl;
+        for(int i=0;i<8;i++) {
+            for(int j=0;j<3;j++) {
+                cout<<points[i][j]<<" ";
+            }
+            cout<<endl;
         }
     }
     setcolor(GREEN);
