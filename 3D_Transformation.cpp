@@ -33,7 +33,6 @@ int main() {
     },temp[8][3];
     setcolor(RED);
     drawCube(points);
-    getch();
     cout<<"Enter rotation angles: ";
     float alpha,beta,gamma;
     cin>>alpha>>beta>>gamma;
