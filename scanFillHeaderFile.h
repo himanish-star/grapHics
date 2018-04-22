@@ -126,10 +126,13 @@ int colorFigure(int n) {
             cout<<(it->first)<<" AND "<<it->second.first<<endl;
         }
         for(it=activeList.begin();it<activeList.end()-1;it+=2) {
-            if(n==1)
+            setcolor(WHITE);
+            if(i%5) {
+                if(n==1)
                 setcolor(BLUE);
-            else
+                else
                 setcolor(YELLOW);
+            }
             line(it->second.first,i,(it+1)->second.first,i);
         }
         for(it=activeList.begin();it<activeList.end();it++) {
