@@ -155,6 +155,34 @@ int main() {
     cout<<endl;
     //let's decide who's going to get illuminated
     //face ABC
+    int p_CentroidABC[3]={
+        (pointP[0]-centroidACB[0]),
+        (pointP[1]-centroidACB[1]),
+        (pointP[2]-centroidACB[2])
+    },
+    p_CentroidABD[3]={
+        (pointP[0]-centroidABD[0]),
+        (pointP[1]-centroidABD[1]),
+        (pointP[2]-centroidABD[2])
+    },
+    p_CentroidACD[3]={
+        (pointP[0]-centroidACD[0]),
+        (pointP[1]-centroidACD[1]),
+        (pointP[2]-centroidACD[2])
+    },
+    p_CentroidCBD[3]={
+        (pointP[0]-centroidBCD[0]),
+        (pointP[1]-centroidBCD[1]),
+        (pointP[2]-centroidBCD[2])
+    };
+    if(p_CentroidABC[0]*normalABC1[0]+p_CentroidABC[1]*normalABC1[1]+p_CentroidABC[2]*normalABC1[2]>0)
+        cout<<"ABC is illuminated"<<endl;
+    if(p_CentroidCBD[0]*normalCBD3[0]+p_CentroidCBD[1]*normalCBD3[1]+p_CentroidCBD[2]*normalCBD3[2]>0)
+        cout<<"BCD is illuminated"<<endl;
+    if(p_CentroidACD[0]*normalACD[0]+p_CentroidACD[1]*normalACD[1]+p_CentroidACD[2]*normalACD[2]>0)
+        cout<<"ACD is illuminated"<<endl;
+    if(p_CentroidABD[0]*normalABD2[0]+p_CentroidABD[1]*normalABD2[1]+p_CentroidABD[2]*normalABD2[2]>0)
+        cout<<"ABD is illuminated"<<endl;
     getch();
     return 0;
 }
