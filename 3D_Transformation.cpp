@@ -48,11 +48,11 @@ int main() {
         }
         cout<<endl;
     }
-    if(alpha) {
-        alpha=((float)(22*alpha)/(7*180));
+    if(beta) {
+        beta=((float)(22*beta)/(7*180));
         for(int i=0;i<8;i++) {
-            temp[i][1]=points[i][1]*cos(alpha)+points[i][2]*sin(alpha);
-            temp[i][2]=-points[i][1]*sin(alpha)+points[i][2]*cos(alpha);
+            temp[i][0]=-points[i][2]*sin(beta)+points[i][0]*cos(beta);
+            temp[i][2]=points[i][2]*cos(beta)+points[i][0]*sin(beta);
         }
         for(int i=0;i<8;i++) {
             for(int j=0;j<3;j++) {
@@ -67,11 +67,11 @@ int main() {
             cout<<endl;
         }
     }
-    if(beta) {
-        beta=((float)(22*beta)/(7*180));
+    if(alpha) {
+        alpha=((float)(22*alpha)/(7*180));
         for(int i=0;i<8;i++) {
-            temp[i][0]=-points[i][2]*sin(beta)+points[i][0]*cos(beta);
-            temp[i][2]=points[i][2]*cos(beta)+points[i][0]*sin(beta);
+            temp[i][1]=points[i][1]*cos(alpha)+points[i][2]*sin(alpha);
+            temp[i][2]=-points[i][1]*sin(alpha)+points[i][2]*cos(alpha);
         }
         for(int i=0;i<8;i++) {
             for(int j=0;j<3;j++) {
