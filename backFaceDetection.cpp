@@ -24,10 +24,10 @@ int main() {
     int gdetect=DETECT,gmode;
     initgraph(&gdetect,&gmode,"c:\\TURBOC3\BGI");
     int points[4][3]={
-        {100,100,100},
-        {300,100,100},
-        {200,100,300},
-        {200,200,200}
+        {20,152,100},
+        {13,-33,100},
+        {272,-5,300},
+        {498,227,200}
     },temp[4][3];
 
     setcolor(YELLOW);
@@ -112,7 +112,7 @@ int main() {
         cout<<normalCBD3[i]<<" ";
     }
     cout<<endl;
-    int pointP[3]={200,300,400};
+    int pointP[3]={200,300,50};
     int centroidACD[3]={
         (points[0][0]+points[2][0]+points[3][0])/3,
         (points[0][1]+points[2][1]+points[3][1])/3,
