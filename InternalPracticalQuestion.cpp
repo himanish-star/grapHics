@@ -5,7 +5,14 @@
 
 using namespace std;
 
+int globalCenterX=320,globalCenterY=200;
+
 void drawScreen() {
+    setcolor(LIGHTGREEN);
+    line(100,20,600,20);
+    line(100,400,600,400);
+    line(100,20,100,400);
+    line(600,20,600,400);
     setcolor(YELLOW);
     outtextxy(140,40,"1644");
     outtextxy(300,40,"1644");
@@ -20,14 +27,14 @@ void drawScreen() {
 }
 
 void plotPixel(int x,int y) {
-    putpixel(320+x,200-y,WHITE);
-    putpixel(320+x,200+y,WHITE);
-    putpixel(320-x,200-y,WHITE);
-    putpixel(320-x,200+y,WHITE);
-    putpixel(320+y,200+x,WHITE);
-    putpixel(320+y,200-x,WHITE);
-    putpixel(320-y,200-x,WHITE);
-    putpixel(320-y,200+x,WHITE);
+    putpixel(globalCenterX+x,globalCenterY-y,WHITE);
+    putpixel(globalCenterX+x,globalCenterY+y,WHITE);
+    putpixel(globalCenterX-x,globalCenterY-y,WHITE);
+    putpixel(globalCenterX-x,globalCenterY+y,WHITE);
+    putpixel(globalCenterX+y,globalCenterY+x,WHITE);
+    putpixel(globalCenterX+y,globalCenterY-x,WHITE);
+    putpixel(globalCenterX-y,globalCenterY-x,WHITE);
+    putpixel(globalCenterX-y,globalCenterY+x,WHITE);
 }
 
 drawCircle(int r,int x,int y) {
@@ -48,12 +55,12 @@ drawCircle(int r,int x,int y) {
 
 void blackPlotter(int x1,int y1,int x2,int y2) {
     setcolor(BLACK);
-    line((320+x1),(200+y1),(320+x2),(200+y2));
+    line((globalCenterX+x1),(globalCenterY+y1),(globalCenterX+x2),(globalCenterY+y2));
 }
 
 void plotter(int x1,int y1,int x2,int y2) {
     setcolor(WHITE);
-    line((320+x1),(200+y1),(320+x2),(200+y2));
+    line((globalCenterX+x1),(globalCenterY+y1),(globalCenterX+x2),(globalCenterY+y2));
 }
 
 void hideTriangle(int x1,int y1,int x2,int y2,int x3,int y3) {
@@ -91,7 +98,7 @@ int main() {
     int r=120;
     drawCircle(r,0,r);
     float cx=0,cy=20,cr=20,CXX=-70,CYY=5;
-    drawCircleGamma(cr,0,cy,CXX+320,CYY+200);
+    drawCircleGamma(cr,0,cy,CXX+globalCenterX,CYY+globalCenterY);
     float tx1=60,tx2=-60,tx3=0,ty1=60,ty2=60,ty3=90;
     float sx1=60,sx2=-60,sx3=-60,sx4=60,sy1=-30,sy2=-30,sy3=-60,sy4=-60;
     float shmx1=60,shmx2=20,shmx3=20,shmx4=60,shmy1=-10,shmy2=-10,shmy3=30,shmy4=30;
@@ -99,13 +106,9 @@ int main() {
     drawSquare(sx1,sy1,sx2,sy2,sx3,sy3,sx4,sy4);
     int theta=0.0;
     //getReadyToDraw the screen
-    setcolor(YELLOW);
-    line(100,20,600,20);
-    line(100,400,600,400);
-    line(100,20,100,400);
-    line(600,20,600,400);
 
     while(true) {
+        drawCircle(r,0,r);
         float CXXP,CYYP;
         float tx1P,tx2P,tx3P,ty1P,ty2P,ty3P;
         float sx1P,sx2P,sx3P,sx4P,sy1P,sy2P,sy3P,sy4P;
@@ -138,12 +141,13 @@ int main() {
         shmx4P=shmx4*cos(thetaP)+shmy4*sin(thetaP);
         shmy4P=-shmx4*sin(thetaP)+shmy4*cos(thetaP);
 
-        theta=(theta+1)%360;
+        theta=(theta+40)%360;
         cout<<theta<<endl;
-        eraseCircleGamma(cr,0,cy,CXX+320,CYY+200);
+        eraseCircleGamma(cr,0,cy,CXX+globalCenterX,CYY+globalCenterY);
         hideTriangle(tx1,ty1,tx2,ty2,tx3,ty3);
         hideSquare(sx1,sy1,sx2,sy2,sx3,sy3,sx4,sy4);
         hideSquare(shmx1,shmy1,shmx2,shmy2,shmx3,shmy3,shmx4,shmy4);
+        eraseCircleGamma(r,0,r,globalCenterX,globalCenterY);
         tx1=tx1P;
         ty1=ty1P;
         tx2=tx2P;
@@ -170,10 +174,15 @@ int main() {
         shmy4=shmy4P;
         drawSquare(sx1,sy1,sx2,sy2,sx3,sy3,sx4,sy4);
         drawTriangle(tx1,ty1,tx2,ty2,tx3,ty3);
-        drawCircleGamma(cr,0,cy,CXX+320,CYY+200);
+        drawCircleGamma(cr,0,cy,CXX+globalCenterX,CYY+globalCenterY);
+        drawCircleGamma(r,0,r,globalCenterX,globalCenterY);
         drawSquare(shmx1,shmy1,shmx2,shmy2,shmx3,shmy3,shmx4,shmy4);
         drawScreen();
-        Sleep(500);
+        globalCenterX=(globalCenterX+10)%400+100;
+        globalCenterY=(globalCenterY+10)%200+100;
+        Sleep(2000);
+        cleardevice();
+        Sleep(1);
     }
     getch();
     return 0;

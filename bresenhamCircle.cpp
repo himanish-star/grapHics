@@ -3,20 +3,20 @@
 
 using namespace std;
 
-void plotPixel(int x,int y) {
-    putpixel(320+x,200-y,WHITE);
-    putpixel(320+x,200+y,WHITE);
-    putpixel(320-x,200-y,WHITE);
-    putpixel(320-x,200+y,WHITE);
-    putpixel(320+y,200+x,WHITE);
-    putpixel(320+y,200-x,WHITE);
-    putpixel(320-y,200-x,WHITE);
-    putpixel(320-y,200+x,WHITE);
+void plotPixel(int x,int y,int xc,int yc) {
+    putpixel(xc+x,yc-y,WHITE);
+    putpixel(xc+x,yc+y,WHITE);
+    putpixel(xc-x,yc-y,WHITE);
+    putpixel(xc-x,yc+y,WHITE);
+    putpixel(xc+y,yc+x,WHITE);
+    putpixel(xc+y,yc-x,WHITE);
+    putpixel(xc-y,yc-x,WHITE);
+    putpixel(xc-y,yc+x,WHITE);
 }
 
-drawCircle(int r,int x,int y) {
+drawCircleGamma(int r,int x,int y,int xc,int yc) {
     int d=3-(2*r);
-    plotPixel(x,y);
+    plotPixel(x,y,xc,yc);
     while(x<=y) {
         if(d<0) {
             d+=4*x+6;
@@ -26,16 +26,15 @@ drawCircle(int r,int x,int y) {
             x++;
             y--;
         }
-        plotPixel(x,y);
+        plotPixel(x,y,xc,yc);
     }
 }
 
 int main() {
     int gd=DETECT,gm;
     initgraph(&gd,&gm,NULL);
-    int r;
-    cin>>r;
-    drawCircle(r,0,r);
+
+    drawCircle(120,0,120,320,200);
     getch();
     return 0;
 }
