@@ -16,15 +16,21 @@ Documentation for the various prototypes available inside the header files
 */
 
 void visibilityGame(int x1,int y1,int x2,int y2,int x3,int y3,int x4,int y4,colors color) {
+    x1*=3;
+    x2*=3;
+    x3*=3;
+    x4*=3;
+    y1*=3;
+    y2*=3;
+    y3*=3;
+    y4*=3;
     double t=0,incr=0.001;
     while(t<=1) {
         int x=((-4.5*pow(t,3)+9*pow(t,2)-5.5*t+1)*x1)+((13.5*pow(t,3)-22.5*pow(t,2)+9*t)*x2)
         +((-13.5*pow(t,3)+18*pow(t,2)-4.5*t)*x3)+((4.5*pow(t,3)-4.5*pow(t,2)+t)*x4);
         int y=((-4.5*pow(t,3)+9*pow(t,2)-5.5*t+1)*y1)+((13.5*pow(t,3)-22.5*pow(t,2)+9*t)*y2)
         +((-13.5*pow(t,3)+18*pow(t,2)-4.5*t)*y3)+((4.5*pow(t,3)-4.5*pow(t,2)+t)*y4);
-        if(pow(x-320,2)+pow(y-200,2)-pow(60,2)>0) {
-            putpixel(x,y,color);
-        }
+        putpixel(x,y,color);
         t+=incr;
     }
 }
@@ -33,25 +39,24 @@ int main() {
     int gdetect=DETECT,gmode;
     initgraph(&gdetect,&gmode,NULL);
 
-    circle(320,200,60);
     //1
-    visibilityGame(200,200,210,190,220,200,210,210,LIGHTCYAN);
-    visibilityGame(200,200,205,208,206,209,210,210,LIGHTCYAN);
-    visibilityGame(220,200,219,215,217,225,205,240,LIGHTCYAN);
-    visibilityGame(205,240,206,239,215,238,225,260,LIGHTCYAN);
+    visibilityGame(20,20.0,21.0,19.0,22.0,20.0,21.0,21.0,LIGHTCYAN);
+    visibilityGame(20,20.0,20.5,20.8,20.6,20.9,21.0,21.0,LIGHTCYAN);
+    visibilityGame(22,20.0,21.9,21.5,21.7,22.5,20.5,24.0,LIGHTCYAN);
+    visibilityGame(20.5,24.0,20.6,23.9,21.5,23.8,22.5,26.0,LIGHTCYAN);
 
     //6
-    visibilityGame(260,190,240,205,255,210,260,210,LIGHTCYAN);
-    visibilityGame(265,210,240,225,260,230,270,225,LIGHTCYAN);
-    visibilityGame(270,225,265,220,260,225,270,260,LIGHTCYAN);
+    visibilityGame(26.0,19.0,24.0,20.5,25.5,21.0,26.0,21.0,LIGHTCYAN);
+    visibilityGame(26.5,21.0,24.0,22.5,26.0,23.0,27.0,22.5,LIGHTCYAN);
+    visibilityGame(27.0,22.5,26.5,22.0,26.0,22.5,27.0,26.0,LIGHTCYAN);
 
     //4
-    visibilityGame(280,190,283,210,320,230,300,250,LIGHTCYAN);
-    visibilityGame(300,250,280,244,300,230,320,190,LIGHTCYAN);
+    visibilityGame(28.0,19.0,28.3,21.0,32.0,23.0,30.0,25.0,LIGHTCYAN);
+    visibilityGame(30.0,25.0,28.0,24.4,30.0,23.0,32.0,19.0,LIGHTCYAN);
 
     //4
-    visibilityGame(330,190,333,210,370,230,350,250,LIGHTCYAN);
-    visibilityGame(350,250,330,244,350,230,370,190,LIGHTCYAN);
+    visibilityGame(33.0,19.0,33.3,21.0,37.0,23.0,35.0,25.0,LIGHTCYAN);
+    visibilityGame(35.0,25.0,33.0,24.4,35.0,23.0,37.0,19.0,LIGHTCYAN);
 
     getch();
     return 0;
