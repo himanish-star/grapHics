@@ -1,13 +1,13 @@
 #include<bits/stdc++.h>
 #include<graphics.h>
-#include"hermiteGraph.h"
-#include"bresenhamLine.h"
-#include"bresenhamCircle.h"
-#include"scanFill.h"
-#include"bresenhamEllipse.h"
-#include"XYZRotator.h"
-#include"cohenSutherland.h"
-#include"insideOutsidePolygon.h"
+#include"shm_Headers/hermiteGraph.h"
+#include"shm_Headers/bresenhamLine.h"
+#include"shm_Headers/bresenhamCircle.h"
+#include"shm_Headers/scanFill.h"
+#include"shm_Headers/bresenhamEllipse.h"
+#include"shm_Headers/XYZRotator.h"
+#include"shm_Headers/cohenSutherland.h"
+#include"shm_Headers/insideOutsidePolygon.h"
 
 using namespace std;
 
