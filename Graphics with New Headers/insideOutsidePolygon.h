@@ -18,10 +18,10 @@ bool checkInsideOrOutside(float vertices[][2],int n,float p1,float p2) {
     } else if(sign>0) {
         posCount++;
     }
-    if(negCount==4) {
+    if(negCount==n) {
         return true;
     }
-    else if(posCount==4) {
+    else if(posCount==n) {
         return true;
     }
     return false;
