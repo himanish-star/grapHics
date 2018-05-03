@@ -41,7 +41,7 @@ int main() {
     putpixel(320,20,LIGHTCYAN);
     setcolor(LIGHTCYAN);
 
-    float theta=30;
+    float theta=60;
     xGlobalCenter=0,yGlobalCenter=210;
     float tempX=0,tempY=210;
     bool left=true,right=false;
@@ -81,11 +81,11 @@ int main() {
             theta+=5;
         }
         cout<<theta<<endl;
-        if(theta==-30) {
+        if(theta==-60) {
             right=true;
             left=false;
         }
-        if(theta==30) {
+        if(theta==60) {
             left=true;
             right=false;
         }
