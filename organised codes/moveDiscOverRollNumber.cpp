@@ -264,7 +264,7 @@ int main() {
     }
     while(true) {
         printRollNumberInBackground(globalCenterX,globalCenterY,dubPolygon1,dubPolygon2,4,5);
-        theta+=10;
+        theta+=100;
         theta%360;
         float angle=3.14*theta/180;
         for(int i=0;i<4;i++) {
